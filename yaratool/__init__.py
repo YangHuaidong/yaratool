@@ -110,7 +110,8 @@ class YaraRule:
                             text += "    %s = \"%s\"\n" % (key, value)
                         elif type(value) == bool:
                             text += "    %s = %s\n" % (key, str(value).lower())
-                        elif type(value) in [int, long]:
+                        # python3 has no long type
+                        elif type(value) == int:
                             text += "    %s = %d\n" % (key, value)
                         elif type(value) == float:
                             text += "    %s = %f\n" % (key, value)
